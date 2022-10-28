@@ -8,15 +8,12 @@ import TransactionDetail from "../views/transaction-detail/Main";
 import Reviews from "../views/reviews/Main";
 import Inbox from "../views/inbox/Main";
 import PointOfSale from "../views/point-of-sale/Main";
-import Post from "../views/post/Main";
 import CrudDataList from "../views/crud-data-list/Main";
 import CrudForm from "../views/crud-form/Main";
 import UsersLayout1 from "../views/users-layout-1/Main";
 import UsersLayout2 from "../views/users-layout-2/Main";
 import UsersLayout3 from "../views/users-layout-3/Main";
 import ProfileOverview1 from "../views/profile-overview-1/Main";
-import ProfileOverview2 from "../views/profile-overview-2/Main";
-import ProfileOverview3 from "../views/profile-overview-3/Main";
 import WizardLayout1 from "../views/wizard-layout-1/Main";
 import WizardLayout2 from "../views/wizard-layout-2/Main";
 import WizardLayout3 from "../views/wizard-layout-3/Main";
@@ -88,10 +85,6 @@ function Router() {
           element: <PointOfSale />,
         },
         {
-          path: "post",
-          element: <Post />,
-        },
-        {
           path: "crud-data-list",
           element: <CrudDataList />,
         },
@@ -114,14 +107,6 @@ function Router() {
         {
           path: "profile-overview-1",
           element: <ProfileOverview1 />,
-        },
-        {
-          path: "profile-overview-2",
-          element: <ProfileOverview2 />,
-        },
-        {
-          path: "profile-overview-3",
-          element: <ProfileOverview3 />,
         },
         {
           path: "wizard-layout-1",

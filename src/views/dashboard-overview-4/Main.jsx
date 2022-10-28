@@ -15,6 +15,7 @@ import ReportDonutChart from "@/components/report-donut-chart/Main";
 // import ReportMap from "@/components/report-map/Main";
 import { useRef } from "react";
 import Test from "./Test";
+import mainProfile from "../../assets/images/mainprofile.png";
 
 function Main() {
   const importantNotesRef = useRef();
@@ -64,12 +65,6 @@ function Main() {
                     <div className="mt-4 text-slate-500 text-xs">
                       Last updated 1 hour ago
                     </div>
-                    {/* <button className="btn btn-outline-secondary relative justify-start rounded-full mt-12">
-                      Download Reports
-                      <span className="w-8 h-8 absolute flex justify-center items-center bg-primary text-white rounded-full right-0 top-0 bottom-0 my-auto ml-auto mr-0.5">
-                        <Lucide icon="ArrowRight" className="w-4 h-4" />
-                      </span>
-                    </button> */}
                   </div>
                   <div className="col-span-12 lg:col-span-8 p-8 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-darkmode-300 border-dashed">
                     <TabGroup>
@@ -86,36 +81,6 @@ function Main() {
                       </TabList>
                       <TabPanels className="px-5 pb-5">
                         <TabPanel className="grid grid-cols-12 gap-y-8 gap-x-10">
-                          {/* <div className="col-span-6 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">미지급 Cash</div>
-                            <div className="mt-1.5 flex items-center">
-                              <div className="text-base">4.501</div>
-                              <div
-                                className="text-danger flex text-xs font-medium tooltip cursor-pointer ml-2"
-                                title="2% Lower than last month"
-                              >
-                                2%
-                                <Lucide
-                                  icon="ChevronDown"
-                                  className="w-4 h-4 ml-0.5"
-                                />
-                              </div>
-                            </div>
-                          </div> */}
-                          {/* <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Funding 파트너</div>
-                            <div className="mt-1.5 flex items-center">
-                              <div className="text-base">3</div>
-                            </div>
-                          </div> */}
-                          {/* <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">
-                            유상 할부금
-                            </div>
-                            <div className="mt-1.5 flex items-center">
-                              <div className="text-base">$72.000</div>
-                            </div>
-                          </div> */}
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
                             <div className="text-slate-500 font-black ">
                               지출
@@ -275,7 +240,7 @@ function Main() {
                         <div className="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
                           <img
                             alt="Midone Tailwind HTML Admin Template"
-                            src={faker.photos[0]}
+                            src={mainProfile}
                           />
                         </div>
                         <div className="ml-4 mr-auto">
