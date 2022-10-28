@@ -43,74 +43,6 @@ const sideMenu = atom({
         icon: "ShoppingBag",
         title: "재활용응용사업펀딩",
         pathname: "/simple-menu/dashboard-overview-1",
-        // subMenu: [
-        //   {
-        //     icon: "",
-        //     pathname: "/categories",
-        //     title: "Categories",
-        //   },
-        //   {
-        //     icon: "",
-        //     pathname: "/add-product",
-        //     title: "Add Product",
-        //   },
-        //   {
-        //     icon: "",
-        //     pathname: "/products",
-        //     title: "Products",
-        //     subMenu: [
-        //       {
-        //         icon: "",
-        //         pathname: "/product-list",
-        //         title: "Product List",
-        //       },
-        //       {
-        //         icon: "",
-        //         pathname: "/product-grid",
-        //         title: "Product Grid",
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     icon: "",
-        //     pathname: "/transactions",
-        //     title: "Transactions",
-        //     subMenu: [
-        //       {
-        //         icon: "",
-        //         pathname: "/transaction-list",
-        //         title: "Transaction List",
-        //       },
-        //       {
-        //         icon: "",
-        //         pathname: "/transaction-detail",
-        //         title: "Transaction Detail",
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     icon: "",
-        //     pathname: "/sellers",
-        //     title: "Sellers",
-        //     subMenu: [
-        //       {
-        //         icon: "",
-        //         pathname: "/seller-list",
-        //         title: "Seller List",
-        //       },
-        //       {
-        //         icon: "",
-        //         pathname: "/seller-detail",
-        //         title: "Seller Detail",
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     icon: "",
-        //     pathname: "/reviews",
-        //     title: "Reviews",
-        //   },
-        // ],
       },
       {
         icon: "HardDrive",
@@ -136,18 +68,7 @@ const sideMenu = atom({
       {
         icon: "Edit",
         title: "저장소",
-        subMenu: [
-          {
-            icon: "",
-            pathname: "/crud-data-list",
-            title: "Data List",
-          },
-          {
-            icon: "",
-            pathname: "/crud-form",
-            title: "Form",
-          },
-        ],
+        pathname: "/crud-data-list",
       },
       {
         icon: "Users",
@@ -173,23 +94,7 @@ const sideMenu = atom({
       {
         icon: "Trello",
         title: "기획자 프로필",
-        subMenu: [
-          {
-            icon: "",
-            pathname: "/profile-overview-1",
-            title: "Overview 1",
-          },
-          {
-            icon: "",
-            pathname: "/profile-overview-2",
-            title: "Overview 2",
-          },
-          {
-            icon: "",
-            pathname: "/profile-overview-3",
-            title: "Overview 3",
-          },
-        ],
+        pathname: "/profile-overview-1",
       },
       // {
       //   icon: "Layout",
