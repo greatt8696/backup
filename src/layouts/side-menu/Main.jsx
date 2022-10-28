@@ -24,7 +24,6 @@ function Main() {
     dom("body").removeClass("error-page").removeClass("login").addClass("main");
     setFormattedMenu(sideMenu());
   }, [sideMenuStore, location.pathname]);
-  console.log(sideMenuStore);
   return (
     <div className="py-5 md:py-0">
       <DarkModeSwitcher />
