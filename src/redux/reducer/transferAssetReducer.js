@@ -7,6 +7,7 @@ const transferAssetReducer = (state = initState, action) => {
 
   switch (type) {
     case "ADD_TRANSACTION":
+      if (state.assetTransactions.length >= 180) state.assetTransactions.pop();
       return {
         ...state,
         assetTransactions: [payload, ...state.assetTransactions],

@@ -41,7 +41,7 @@ function Main(props) {
           >
             <img
               alt="Enigma Tailwind HTML Admin Template"
-              className="logo__image w-24 h-24 mb-1"
+              className="logo__image w-24 h-24 min-w-24 mb-1"
               src={InfinityLogo}
             />
             <div className="logo__text text-white text-2xl font-bold  mt-8 w-60">
@@ -56,10 +56,10 @@ function Main(props) {
           >
             <ol className="breadcrumb breadcrumb-light flew w-full justify-between">
               <li className="ml-10 text-2xl font-bold "></li>
-              <li className="ml-10 text-2xl font-bold ">
+              <li className="ml-10 text-2xl font-bold md:text-xl">
                 스마트시티 ESG 친환경 플랫폼
               </li>
-              <li className="breadcrumb-item ml-30 text-2xl font-bold">
+              <li className="breadcrumb-item ml-30 text-2xl font-bold md:text-xl">
                 <a href="#">K-Green Recycle V 1.0</a>
               </li>
               {/* <li className="breadcrumb-item active" aria-current="page">
