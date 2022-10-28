@@ -1,3 +1,191 @@
+"react-virtualized": "^9.22.3", // package.json 안에 설치 라이브러리
+
+
+
+
+
+
+
+
+vite.config.json vite
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+const resolveFixup = {
+  name: "resolve-fixup",
+  setup(build) {
+    build.onResolve({ filter: /react-virtualized/ }, async (args) => {
+      return {
+        path: path.resolve(
+          "./node_modules/react-virtualized/dist/umd/react-virtualized.js"
+        ),
+      };
+    });
+  },
+};
+// https://vitejs.dev/config/
+export default defineConfig({
+  optimizeDeps: {
+    esbuildOptions: {
+      plugins: [resolveFixup],
+    },
+  },
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+});
+
+
+
+
+
+
+
+crud-data-list/Main.jsx
+
+import React, { useCallback, useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { List  } from "react-virtualized";
+import Test from "./Test";
+import {
+  Lucide,
+  Tippy,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownContent,
+  DropdownItem,
+  Modal,
+  ModalBody,
+} from "@/base-components";
+import { faker as $f } from "@/utils";
+import * as $_ from "lodash";
+import classnames from "classnames";
+const Main = () => {
+  const assetTransactions = useSelector(
+    (state) => state.transferAssetReducer.assetTransactions,
+  )
+  useEffect(() => {
+    console.log(assetTransactions)
+  }, [assetTransactions])
+  
+  let [listItem,setListItem] = useState();
+  
+  const rowRenderer = useCallback(
+    ({ index, key, style }) => {
+      setListItem(listItem=assetTransactions[index])
+      if(listItem){
+        return (
+          <Test listItem={listItem} key={key} style={style} assetTransactions={assetTransactions}/>
+        );
+      }
+    },
+    [assetTransactions,listItem]
+  );
+  return (
+      <List
+        className="Main"
+        width={1622}
+        height={1500}
+        rowCount={assetTransactions.length}
+        rowHeight={64}
+        rowRenderer={rowRenderer}
+        list={assetTransactions}
+        style={{ outline: "none" }}
+      />
+  );
+};
+
+export default React.memo(Main);
+
+
+
+
+crud-data-list/Test.jsx
+
+
+
+import {
+  Lucide,
+  Tippy,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownContent,
+  DropdownItem,
+  Modal,
+  ModalBody,
+} from "@/base-components";
+import { faker as $f } from "@/utils";
+import * as $_ from "lodash";
+import React, { useCallback, useEffect, useState } from "react";
+import classnames from "classnames";
+
+function Test({ listItem, style,key }) {
+  const {from,to,balance,ticker} = listItem;
+  return (
+      <>
+          <tr key={key} className="intro-x" style={style}>
+            <td className="w-40"></td>
+            <td>
+              <a href="" className="font-medium whitespace-nowrap">
+                {JSON.stringify(from)}
+              </a>
+              <div className="text-slate-500 text-xs whitespace-nowrap mt-0.5">
+                {JSON.stringify(to)}
+              </div>
+            </td>
+            <td className="text-center">
+              {JSON.stringify(balance)}
+            </td>
+            <td className="w-40">
+              <div
+                className={classnames({
+                  "flex items-center justify-center": true,
+                })}
+              >
+                <Lucide icon="CheckSquare" className="w-4 h-4 mr-2" />
+                {JSON.stringify(ticker)}
+              </div>
+            </td>
+            <td className="w-56 table-report__action">
+              <div className="flex items-center justify-center">
+                <a className="flex items-center mr-3" href="#">
+                  <Lucide icon="CheckSquare" className="w-4 h-4 mr-1" />{" "}
+                  Edit
+                </a>
+                <a
+                  className="flex items-center text-danger"
+                  href="#"
+                  onClick={() => {
+                    setDeleteConfirmationModal(true);
+                  }}
+                >
+                  <Lucide icon="Trash2" className="w-4 h-4 mr-1"
+                 /> Delete
+                </a>
+              </div>
+            </td>
+          </tr>
+
+      </>
+  );
+}
+
+export default React.memo(Test);
+
+
+
+
+
+
+users-layout-1/Main.jsx
+
 import {
   Lucide,
   Dropdown,
@@ -305,3 +493,17 @@ function Main() {
 }
 
 export default Main;
+
+
+
+
+
+
+1. 드롭다운 없애고 버튼형식으로 제공하기
+
+2. 네이버의 특색인 색깔로 nav바꾸기
+
+3. 유저 프로필 들어갈때마다 랜덤 지정한 이미지로 바꿀 수 있게끔 알아두고 변경
+
+
+

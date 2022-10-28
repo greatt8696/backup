@@ -7,7 +7,6 @@ const transferAssetReducer = (state = initState, action) => {
 
   switch (type) {
     case "ADD_TRANSACTION":
-      console.log("@@@@", payload);
       return {
         ...state,
         assetTransactions: [payload, ...state.assetTransactions],

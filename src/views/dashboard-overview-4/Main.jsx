@@ -12,8 +12,9 @@ import { faker as $f } from "@/utils";
 import * as $_ from "lodash";
 import classnames from "classnames";
 import ReportDonutChart from "@/components/report-donut-chart/Main";
-import ReportMap from "@/components/report-map/Main";
+// import ReportMap from "@/components/report-map/Main";
 import { useRef } from "react";
+import Test from "./Test";
 
 function Main() {
   const importantNotesRef = useRef();
@@ -32,12 +33,7 @@ function Main() {
             {/* BEGIN: General Report */}
             <div className="col-span-12 xl:col-span-9 mt-8">
               <div className="intro-y flex items-center h-10">
-                <h2 className="text-lg font-medium truncate mr-5">
-                  General Report
-                </h2>
-                <a href="" className="ml-auto text-primary truncate">
-                  Show More
-                </a>
+                <h2 className="text-lg font-bold truncate mr-5 ">메인페이지</h2>
               </div>
               <div className="report-box-2 intro-y mt-5">
                 <div className="box grid grid-cols-12">
@@ -46,16 +42,16 @@ function Main() {
                       icon="PieChart"
                       className="w-10 h-10 text-pending"
                     />
-                    <div className="justify-start flex items-center text-slate-600 dark:text-slate-300 mt-12">
-                      My Total Assets
-                      <Lucide
+                    <div className="justify-start flex items-center text-green-700 dark:text-slate-300 mt-8 text-3xl ">
+                      ♻ Green Coin
+                      {/* <Lucide
                         icon="AlertCircle"
                         className="tooltip w-4 h-4 ml-1.5"
                         title="Total value of your sales: $158.409.416"
-                      />
+                      /> */}
                     </div>
                     <div className="flex items-center justify-start mt-4">
-                      <div className="relative text-2xl font-medium pl-3 ml-0.5">
+                      <div className="relative text-xl font-medium pl-3 ml-0.5">
                         <span className="absolute text-xl font-medium top-0 left-0 -ml-0.5">
                           $
                         </span>
@@ -68,12 +64,12 @@ function Main() {
                     <div className="mt-4 text-slate-500 text-xs">
                       Last updated 1 hour ago
                     </div>
-                    <button className="btn btn-outline-secondary relative justify-start rounded-full mt-12">
+                    {/* <button className="btn btn-outline-secondary relative justify-start rounded-full mt-12">
                       Download Reports
                       <span className="w-8 h-8 absolute flex justify-center items-center bg-primary text-white rounded-full right-0 top-0 bottom-0 my-auto ml-auto mr-0.5">
                         <Lucide icon="ArrowRight" className="w-4 h-4" />
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                   <div className="col-span-12 lg:col-span-8 p-8 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-darkmode-300 border-dashed">
                     <TabGroup>
@@ -90,8 +86,8 @@ function Main() {
                       </TabList>
                       <TabPanels className="px-5 pb-5">
                         <TabPanel className="grid grid-cols-12 gap-y-8 gap-x-10">
-                          <div className="col-span-6 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Unpaid Loan</div>
+                          {/* <div className="col-span-6 sm:col-span-6 md:col-span-4">
+                            <div className="text-slate-500">미지급 Cash</div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">4.501</div>
                               <div
@@ -105,30 +101,32 @@ function Main() {
                                 />
                               </div>
                             </div>
-                          </div>
-                          <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Active Partner</div>
+                          </div> */}
+                          {/* <div className="col-span-12 sm:col-span-6 md:col-span-4">
+                            <div className="text-slate-500">Funding 파트너</div>
                             <div className="mt-1.5 flex items-center">
-                              <div className="text-base">2</div>
+                              <div className="text-base">3</div>
                             </div>
-                          </div>
-                          <div className="col-span-12 sm:col-span-6 md:col-span-4">
+                          </div> */}
+                          {/* <div className="col-span-12 sm:col-span-6 md:col-span-4">
                             <div className="text-slate-500">
-                              Paid Installment
+                            유상 할부금
                             </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">$72.000</div>
                             </div>
-                          </div>
+                          </div> */}
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Disbursement</div>
+                            <div className="text-slate-500 font-black ">
+                              지출
+                            </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">$54.000</div>
                             </div>
                           </div>
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">
-                              Success Payment
+                            <div className="text-slate-500 font-black">
+                              유료 성공 지불
                             </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">2.500</div>
@@ -145,27 +143,33 @@ function Main() {
                             </div>
                           </div>
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Unpaid Loan</div>
+                            <div className="text-slate-500 font-black">
+                              미지급 대출
+                            </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">$72.000</div>
                             </div>
                           </div>
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">
-                              Posted Campaign
+                            <div className="text-slate-500 font-black">
+                              게시된 펀딩
                             </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">4.501</div>
                             </div>
                           </div>
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Social Media</div>
+                            <div className="text-slate-500 font-black">
+                              소셜 미디어
+                            </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">2</div>
                             </div>
                           </div>
                           <div className="col-span-12 sm:col-span-6 md:col-span-4">
-                            <div className="text-slate-500">Net Margin</div>
+                            <div className="text-slate-500 font-black">
+                              순이익률
+                            </div>
                             <div className="mt-1.5 flex items-center">
                               <div className="text-base">$72.000</div>
                               <div
@@ -191,32 +195,38 @@ function Main() {
             {/* BEGIN: Sales Report */}
             <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 row-start-4 lg:row-start-3 xl:row-start-auto mt-6 xl:mt-8">
               <div className="intro-y flex items-center h-10">
-                <h2 className="text-lg font-medium truncate mr-5">
+                {/* <h2 className="text-lg font-medium truncate mr-5">
                   Sales Report
-                </h2>
-                <a href="" className="ml-auto text-primary truncate">
-                  Show More
-                </a>
+                </h2> */}
               </div>
               <div className="report-box-2 before:hidden xl:before:block intro-y mt-5">
                 <div className="box p-5">
+                  <div className="text-slate-500 font-black">
+                    하루 총 배출량 비율
+                  </div>
                   <div className="mt-3">
-                    <ReportDonutChart height={196} />
+                    <ReportDonutChart height={95} />
                   </div>
                   <div className="w-52 sm:w-auto mx-auto mt-8">
                     <div className="flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                      <span className="truncate">17 - 30 Years old</span>
+                      <span className="truncate text-slate-500 font-black">
+                        유리
+                      </span>
                       <span className="font-medium ml-auto">62%</span>
                     </div>
                     <div className="flex items-center mt-4">
                       <div className="w-2 h-2 bg-pending rounded-full mr-3"></div>
-                      <span className="truncate">31 - 50 Years old</span>
+                      <span className="truncate text-slate-500 font-black">
+                        철
+                      </span>
                       <span className="font-medium ml-auto">33%</span>
                     </div>
                     <div className="flex items-center mt-4">
                       <div className="w-2 h-2 bg-warning rounded-full mr-3"></div>
-                      <span className="truncate">&gt;= 50 Years old</span>
+                      <span className="truncate text-slate-500 font-black">
+                        플라스틱
+                      </span>
                       <span className="font-medium ml-auto">10%</span>
                     </div>
                   </div>
@@ -225,10 +235,10 @@ function Main() {
             </div>
             {/* END: Sales Report */}
             {/* BEGIN: Official Store */}
-            <div className="col-span-12 xl:col-span-8 mt-6">
+            <div className="col-span-12 mt-6">
               <div className="intro-y block sm:flex items-center h-10">
-                <h2 className="text-lg font-medium truncate mr-5">
-                  Official Store
+                <h2 className="text-lg font-bold truncate mr-5 ">
+                  거래소 가이드 맵
                 </h2>
                 <div className="sm:ml-auto mt-3 sm:mt-0 relative text-slate-500">
                   <Lucide
@@ -243,16 +253,12 @@ function Main() {
                 </div>
               </div>
               <div className="intro-y box p-5 mt-12 sm:mt-5">
-                <div>
-                  250 Official stores in 21 countries, click the marker to see
-                  location details.
-                </div>
-                <ReportMap className="report-maps mt-5 bg-slate-200 rounded-md" />
+                <Test className="report-maps mt-5 bg-slate-200 rounded-md" />
               </div>
             </div>
             {/* END: Official Store */}
             {/* BEGIN: Weekly Best Sellers */}
-            <div className="col-span-12 lg:col-span-8 xl:col-span-4 mt-6">
+            {/* <div className="col-span-12 lg:col-span-8 xl:col-span-4 mt-6">
               <div className="intro-y flex items-center h-10">
                 <h2 className="text-lg font-medium truncate mr-5">
                   Weekly Best Sellers
@@ -282,15 +288,14 @@ function Main() {
                 ))}
                 <a
                   href=""
-                  className="intro-y w-full block text-center rounded-md py-4 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500"
-                >
+                  className="intro-y w-full block text-center rounded-md py-4 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">
                   View More
                 </a>
               </div>
-            </div>
+            </div> */}
             {/* END: Weekly Best Sellers */}
             {/* BEGIN: Visitors */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4 mt-6">
+            {/* <div className="col-span-12 md:col-span-6 lg:col-span-4 mt-6">
               <div className="intro-y block sm:flex items-center h-10">
                 <h2 className="text-lg font-medium truncate mr-5">Visitors</h2>
                 <select className="sm:ml-auto mt-3 sm:mt-0 sm:w-auto form-select box">
@@ -311,8 +316,7 @@ function Main() {
                     <div>Site Visits</div>
                     <div
                       className="text-danger flex text-xs font-medium tooltip cursor-pointer ml-2"
-                      title="49% Higher than last month"
-                    >
+                      title="49% Higher than last month">
                       -2%{" "}
                       <Lucide icon="ChevronDown" className="w-4 h-4 ml-0.5" />
                     </div>
@@ -330,8 +334,7 @@ function Main() {
                     <div>Page Views</div>
                     <div
                       className="text-success flex text-xs font-medium tooltip cursor-pointer ml-2"
-                      title="49% Higher than last month"
-                    >
+                      title="49% Higher than last month">
                       5% <Lucide icon="ChevronUp" className="w-4 h-4 ml-0.5" />
                     </div>
                   </div>
@@ -348,8 +351,7 @@ function Main() {
                     <div>% New Visits</div>
                     <div
                       className="text-danger flex text-xs font-medium tooltip cursor-pointer ml-2"
-                      title="49% Higher than last month"
-                    >
+                      title="49% Higher than last month">
                       -9%{" "}
                       <Lucide icon="ChevronDown" className="w-4 h-4 ml-0.5" />
                     </div>
@@ -369,10 +371,10 @@ function Main() {
                   </span>
                 </button>
               </div>
-            </div>
+            </div> */}
             {/* END: Visitors */}
             {/* BEGIN: Most Viewed Pages */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4 mt-6">
+            {/* <div className="col-span-12 md:col-span-6 lg:col-span-4 mt-6">
               <div className="intro-y block sm:flex items-center h-10">
                 <h2 className="text-lg font-medium truncate mr-5">
                   Most Viewed Pages
@@ -421,10 +423,10 @@ function Main() {
                   </span>
                 </button>
               </div>
-            </div>
+            </div> */}
             {/* END: Most Viewed Pages */}
             {/* BEGIN: Top Search Items */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4 mt-6">
+            {/* <div className="col-span-12 md:col-span-6 lg:col-span-4 mt-6">
               <div className="intro-y block sm:flex items-center h-10">
                 <h2 className="text-lg font-medium truncate mr-5">
                   Top Search Items
@@ -473,10 +475,10 @@ function Main() {
                   </span>
                 </button>
               </div>
-            </div>
+            </div> */}
             {/* END: Top Search Items */}
             {/* BEGIN: Weekly Top Products */}
-            <div className="col-span-12 mt-6">
+            {/* <div className="col-span-12 mt-6">
               <div className="intro-y block sm:flex items-center h-10">
                 <h2 className="text-lg font-medium truncate mr-5">
                   Weekly Top Products
@@ -558,8 +560,7 @@ function Main() {
                               "flex items-center justify-center": true,
                               "text-success": faker.trueFalse[0],
                               "text-danger": !faker.trueFalse[0],
-                            })}
-                          >
+                            })}>
                             <Lucide
                               icon="CheckSquare"
                               className="w-4 h-4 mr-2"
@@ -578,8 +579,7 @@ function Main() {
                             </a>
                             <a
                               className="flex items-center text-danger"
-                              href=""
-                            >
+                              href="">
                               <Lucide icon="Trash2" className="w-4 h-4 mr-1" />{" "}
                               Delete
                             </a>
@@ -647,7 +647,7 @@ function Main() {
                   <option>50</option>
                 </select>
               </div>
-            </div>
+            </div> */}
             {/* END: Weekly Top Products */}
           </div>
         </div>

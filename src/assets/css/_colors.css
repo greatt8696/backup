@@ -71,7 +71,7 @@
 
 /* Theme 3 colors */
 .theme-3 {
-    --color-primary: theme("colors.rgb.emerald.900");
+    --color-primary: theme("colors.rgb.emerald.600");
     --color-secondary: theme("colors.rgb.slate.200");
     --color-success: theme("colors.rgb.emerald.600");
     --color-info: theme("colors.rgb.cyan.500");
@@ -81,7 +81,7 @@
     --color-light: theme("colors.rgb.slate.100");
     --color-dark: theme("colors.rgb.slate.800");
     &.dark {
-        --color-primary: theme("colors.rgb.emerald.800");
+        --color-primary: theme("colors.rgb.emerald.700");
     }
 }
 
