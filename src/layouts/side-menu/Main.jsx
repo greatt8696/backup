@@ -186,7 +186,7 @@ function Main() {
         </nav>
         {/* END: Side Menu */}
         {/* BEGIN: Content */}
-        <div className="content">
+        <div className="content scrollbar-hide">
           <Outlet />
         </div>
         {/* END: Content */}

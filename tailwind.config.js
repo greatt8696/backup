@@ -101,7 +101,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("tailwind-scrollbar-hide"), require("@tailwindcss/forms")],
   variants: {
     extend: {
       boxShadow: ["dark"],

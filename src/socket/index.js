@@ -6,14 +6,14 @@ const socket = io("ws://192.168.0.106:3636");
 
 function getTradeSocket(dispatch) {
   tradeSocket.on("trade", (arg) => {
-    console.log("@@@@@@@@@@");
+    // console.log("@@@@@@@@@@");
   });
   return tradeSocket;
 }
 
 function getUserSocket(dispatch) {
   userSocket.on("transfer", (arg) => {
-    console.log("@@@@@@@@@@");
+    // console.log("@@@@@@@@@@");
     dispatch({ type: "ADD_TRANSACTION", payload: arg });
   });
   return userSocket;

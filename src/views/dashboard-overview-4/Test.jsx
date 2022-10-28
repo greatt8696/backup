@@ -143,7 +143,8 @@ const Test = () => {
         className="mapApi"
         center={{ lat: 36.62110233414021, lng: 127.96746184031142 }}
         level={13}
-        style={{ width: "100%", height: "400px" }}>
+        style={{ width: "100%", height: "400px" }}
+      >
         {/* {greenFund.map((value) => (
           // value는 여러개의 방들중 하나의 방의 값들
           // index는 여러개의 방들

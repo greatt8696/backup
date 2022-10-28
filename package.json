@@ -47,6 +47,7 @@
     "simplebar": "^5.3.6",
     "socket.io-client": "^4.5.3",
     "tabulator-tables": "^4.9.3",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "tiny-slider": "^2.9.3",
     "tippy.js": "^6.2.7",
     "toastify-js": "^1.9.3",
