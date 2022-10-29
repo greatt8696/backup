@@ -105,12 +105,14 @@ module.exports = {
         "bounce-short": "bounce 0.2s ease-in-out infinite",
         "bounce-short": "bounce 0.2s ease-in-out infinite",
         "wiggle-once": "wiggle 0.4s ease-in-out 1",
-        "blink-green": "blink-green 0.4s ease-in-out 1",
         "blink-red": "blink-red 0.4s ease-in-out 1",
-        "blink-text-green": "blink-text-green 0.4s ease-in-out 1",
+        "blink-blue": "blink-blue 0.4s ease-in-out 1",
         "blink-text-red": "blink-text-red 0.4s ease-in-out 1",
-        "blink-ba-green": "blink-ba-green 0.6s ease-in-out 1",
+        "blink-text-blue": "blink-text-blue 0.4s ease-in-out 1",
         "blink-ba-red": "blink-ba-red 0.6s ease-in-out 1",
+        "blink-ba-blue": "blink-ba-blue 0.6s ease-in-out 1",
+
+        "ping-once": "ping-once 0.6s ease-in-out 1",
       },
 
       // 내가 원하는 animation-keyframes 지정
@@ -119,41 +121,45 @@ module.exports = {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
-        "blink-green": {
-          "0%, 100%": {
-            "background-color": "transparent",
-            transform: "rotate(-3deg)",
-          },
-          "50%": { "background-color": "#15803d", transform: "rotate(3deg)" },
-        },
         "blink-red": {
           "0%, 100%": {
             "background-color": "transparent",
             transform: "rotate(-3deg)",
           },
-          "50%": { "background-color": "#B22222", transform: "rotate(3deg)" },
+          "50%": { "background-color": "#1d5cc5", transform: "rotate(3deg)" },
+        },
+        "blink-blue": {
+          "0%, 100%": {
+            "background-color": "transparent",
+            transform: "rotate(-3deg)",
+          },
+          "50%": { "background-color": "#e6285a", transform: "rotate(3deg)" },
         },
 
-        "blink-bar-green": {
+        "blink-bar-red": {
           "0%, 100%": {
             "background-color": "transparent",
           },
-          "50%": { "background-color": "#15803d" },
+          "50%": { "background-color": "#1d5cc5" },
         },
-        "blink-bar-red": {
+        "blink-bar-blue": {
           "0%, 100%": {
             "background-color": "transparent",
           },
           "50%": { "background-color": "#b91c1c" },
         },
 
-        "blink-text-green": {
-          "0%, 100%": { color: "white", transform: "scale(1)" },
-          "50%": { color: "#15803d", transform: "scale(1.2)" },
-        },
         "blink-text-red": {
           "0%, 100%": { color: "white", transform: "scale(1)" },
-          "50%": { color: "#B22222", transform: "scale(1.2)" },
+          "50%": { color: "#1d5cc5", transform: "scale(1.2)" },
+        },
+        "blink-text-blue": {
+          "0%, 100%": { color: "white", transform: "scale(1)" },
+          "50%": { color: "#e6285a", transform: "scale(1.2)" },
+        },
+        "ping-once": {
+          "0%": { transform: "scale(1)" },
+          "100%": { opacity: 0, transform: "scale(2)" },
         },
       },
     },
