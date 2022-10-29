@@ -18,10 +18,12 @@ import Test from './Test'
 import mainProfile from '../../assets/images/mainprofile.png'
 import { useDispatch, useSelector } from 'react-redux'
 import CandleChart from '../../components/candleChart/CandleChart'
+import PricePanel from '../../components/PricePanel'
+import { useEffect } from 'react'
 
 function Main() {
   const dispatch = useDispatch()
-  const selectedCoin = useSelector((state) => state.coinReducer.selectedCoin)
+  const coinsPrice = useSelector((state) => state.coinReducer.coinsPrice)
 
   const importantNotesRef = useRef()
   const prevImportantNotes = () => {
@@ -30,6 +32,8 @@ function Main() {
   const nextImportantNotes = () => {
     importantNotesRef.current.tns.goTo('next')
   }
+
+  useEffect(()=>{console.log(coinsPrice);},[coinsPrice])
 
   return (
     <>
@@ -234,7 +238,9 @@ function Main() {
               {/* BEGIN: Transactions */}
               <div className="col-span-12 md:col-span-6 xl:col-span-4 2xl:col-span-12 mt-3">
                 <div className="intro-x flex items-center h-10">
-                  <h2 className="text-lg font-medium truncate mr-5">Green Coin</h2>
+                  <h2 className="text-lg font-medium truncate mr-5">
+                    Green Coin
+                  </h2>
                 </div>
                 <div className="">
                   <CandleChart></CandleChart>
@@ -244,36 +250,16 @@ function Main() {
               {/* BEGIN: Transactions */}
               <div className="col-span-12 md:col-span-6 xl:col-span-4 2xl:col-span-12 mt-3">
                 <div className="intro-x flex items-center h-10">
-                  <h2 className="text-lg font-medium truncate mr-5">뀨뀨뀨</h2>
+                  <h2 className="text-lg font-medium truncate mr-5">거래소</h2>
                 </div>
                 <div className="mt-5">
-                  {$_.take($f(), 5).map((faker, fakerKey) => (
-                    <div key={fakerKey} className="intro-x">
-                      <div className="box px-5 py-3 mb-3 flex items-center zoom-in animate-wiggle-once">
-                        <div className="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                          <img
-                            alt="Midone Tailwind HTML Admin Template"
-                            src={mainProfile}
-                          />
-                        </div>
-                        <div className="ml-4 mr-auto">
-                          <div className="font-medium">
-                            {faker.users[0].name}
-                          </div>
-                          <div className="text-slate-500 text-xs mt-0.5">
-                            {faker.dates[0]}
-                          </div>
-                        </div>
-                        <div
-                          className={classnames({
-                            'text-success': faker.trueFalse[0],
-                            'text-danger': !faker.trueFalse[0],
-                          })}
-                        >
-                          {faker.trueFalse[0] ? '+' : '-'}${faker.totals[0]}
-                        </div>
-                      </div>
-                    </div>
+                  {coinsPrice.map((coin) => (
+                    <PricePanel
+                      key={coin.code}
+                      coin={coin}
+                      setIsSelect={false}
+                      isSelect={false}
+                    />
                   ))}
                 </div>
               </div>

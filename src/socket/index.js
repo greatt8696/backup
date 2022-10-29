@@ -8,15 +8,34 @@ const tradeSocket = io("ws://localhost:3636/trade");
 const socket = io("ws://localhost:3636");
 
 function getTradeSocket(dispatch) {
-  tradeSocket.on("trade", (arg) => {
-    // console.log("@@@@@@@@@@");
+  tradeSocket.on("order", (arg) => {});
+  tradeSocket.on("price", (arg) => {
+    const {
+      code,
+      trade_price,
+      change,
+      change_rate,
+      change_price,
+      acc_trade_price_24h,
+    } = arg;
+    const newData = {
+      code,
+      trade_price,
+      change,
+      change_rate,
+      change_price,
+      acc_trade_price_24h,
+    };
+    dispatch({ type: "UPDATE_COIN", payload: newData });
+  });
+  tradeSocket.on("candle", (arg) => {
+    dispatch({ type: "UPDATE_CANDLE", payload: arg });
   });
   return tradeSocket;
 }
 
 function getUserSocket(dispatch) {
   userSocket.on("transfer", (arg) => {
-    // console.log("@@@@@@@@@@");
     dispatch({ type: "ADD_TRANSACTION", payload: arg });
   });
   return userSocket;
