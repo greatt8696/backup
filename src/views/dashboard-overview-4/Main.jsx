@@ -7,28 +7,29 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-} from "@/base-components";
-import { faker as $f } from "@/utils";
-import * as $_ from "lodash";
-import classnames from "classnames";
-import ReportDonutChart from "@/components/report-donut-chart/Main";
+} from '@/base-components'
+import { faker as $f } from '@/utils'
+import * as $_ from 'lodash'
+import classnames from 'classnames'
+import ReportDonutChart from '@/components/report-donut-chart/Main'
 // import ReportMap from "@/components/report-map/Main";
-import { useRef } from "react";
-import Test from "./Test";
-import mainProfile from "../../assets/images/mainprofile.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useRef } from 'react'
+import Test from './Test'
+import mainProfile from '../../assets/images/mainprofile.png'
+import { useDispatch, useSelector } from 'react-redux'
+import CandleChart from '../../components/candleChart/CandleChart'
 
 function Main() {
-  const dispatch = useDispatch();
-  const selectedCoin = useSelector((state) => state.coinReducer.selectedCoin);
+  const dispatch = useDispatch()
+  const selectedCoin = useSelector((state) => state.coinReducer.selectedCoin)
 
-  const importantNotesRef = useRef();
+  const importantNotesRef = useRef()
   const prevImportantNotes = () => {
-    importantNotesRef.current.tns.goTo("prev");
-  };
+    importantNotesRef.current.tns.goTo('prev')
+  }
   const nextImportantNotes = () => {
-    importantNotesRef.current.tns.goTo("next");
-  };
+    importantNotesRef.current.tns.goTo('next')
+  }
 
   return (
     <>
@@ -233,6 +234,16 @@ function Main() {
               {/* BEGIN: Transactions */}
               <div className="col-span-12 md:col-span-6 xl:col-span-4 2xl:col-span-12 mt-3">
                 <div className="intro-x flex items-center h-10">
+                  <h2 className="text-lg font-medium truncate mr-5">Green Coin</h2>
+                </div>
+                <div className="">
+                  <CandleChart></CandleChart>
+                </div>
+              </div>
+              {/* END: Transactions */}
+              {/* BEGIN: Transactions */}
+              <div className="col-span-12 md:col-span-6 xl:col-span-4 2xl:col-span-12 mt-3">
+                <div className="intro-x flex items-center h-10">
                   <h2 className="text-lg font-medium truncate mr-5">뀨뀨뀨</h2>
                 </div>
                 <div className="mt-5">
@@ -255,11 +266,11 @@ function Main() {
                         </div>
                         <div
                           className={classnames({
-                            "text-success": faker.trueFalse[0],
-                            "text-danger": !faker.trueFalse[0],
+                            'text-success': faker.trueFalse[0],
+                            'text-danger': !faker.trueFalse[0],
                           })}
                         >
-                          {faker.trueFalse[0] ? "+" : "-"}${faker.totals[0]}
+                          {faker.trueFalse[0] ? '+' : '-'}${faker.totals[0]}
                         </div>
                       </div>
                     </div>
@@ -272,7 +283,7 @@ function Main() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Main;
+export default Main

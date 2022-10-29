@@ -7,7 +7,6 @@ const EventMarkerContainer = ({ position, content }) => {
   return (
     <>
       <MapMarker
-  
         position={position}
         onClick={(marker) => map.panTo(marker.getPosition())}
         onMouseOver={() => setIsVisible(true)}

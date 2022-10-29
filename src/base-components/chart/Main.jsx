@@ -1,154 +1,74 @@
-import { createElement, createRef, useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import { createElement, createRef, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import Chart from "chart.js/auto";
 
-function candleChart(props) {
-  const initialRender = useRef(true)
-  const chartRef = createRef()
+const init = (el, props) => {
+  const canvas = el?.getContext("2d");
+  const chart = new Chart(canvas, {
+    type: props.type,
+    data: props.data,
+    options: props.options,
+  });
 
-  const [chart, setChart] = useState()
+  // Attach ChartJs instance
+  el.instance = chart;
+};
 
-  const options = {
-    series: [
-      {
-        data: seriesData,
-      },
-    ], 
-    options: {
-      chart: {
-        type: 'candlestick',
-        height: 290,
-        id: 'candles',
-        toolbar: {
-          autoSelected: 'pan',
-          show: false,
-        },
-        zoom: {
-          enabled: false,
-        },
-      },
-      plotOptions: {
-        candlestick: {
-          colors: {
-            upward: '#3C90EB',
-            downward: '#DF7D46',
-          },
-        },
-      },
-      xaxis: {
-        type: 'datetime',
+function ChartComponent(props) {
+  const initialRender = useRef(true);
+  const chartRef = createRef();
+
+  useEffect(() => {
+    if (initialRender.current) {
+      props.getRef(chartRef.current);
+      init(chartRef.current, props);
+      initialRender.current = false;
+    } else {
+      chartRef.current.instance.data = props.data;
+      chartRef.current.instance.options = props.options;
+      chartRef.current.instance.update();
+    }
+  }, [props.data, props.options]);
+
+  const { type, data, options, width, height, getRef, ...computedProps } =
+    props;
+  return createElement(
+    "div",
+    {
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
       },
     },
-
-    seriesBar: [
+    createElement(
+      "canvas",
       {
-        name: 'volume',
-        data: seriesDataLinear,
+        ...computedProps,
+        ref: chartRef,
       },
-    ],
-    optionsBar: {
-      chart: {
-        height: 160,
-        type: 'bar',
-        brush: {
-          enabled: true,
-          target: 'candles',
-        },
-        selection: {
-          enabled: true,
-          xaxis: {
-            min: new Date('20 Jan 2017').getTime(),
-            max: new Date('10 Dec 2017').getTime(),
-          },
-          fill: {
-            color: '#ccc',
-            opacity: 0.4,
-          },
-          stroke: {
-            color: '#0D47A1',
-          },
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      plotOptions: {
-        bar: {
-          columnWidth: '80%',
-          colors: {
-            ranges: [
-              {
-                from: -1000,
-                to: 0,
-                color: '#F15B46',
-              },
-              {
-                from: 1,
-                to: 10000,
-                color: '#FEB019',
-              },
-            ],
-          },
-        },
-      },
-      stroke: {
-        width: 0,
-      },
-      xaxis: {
-        type: 'datetime',
-        axisBorder: {
-          offsetX: 13,
-        },
-      },
-      yaxis: {
-        labels: {
-          show: false,
-        },
-      },
-    },
-  }
-
-  const { type, data, width, height, getRef, ...computedProps } = props
-
-  return (
-    <div class="chart-box">
-      <div id="chart-candlestick">
-        <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
-          type="candlestick"
-          height={290}
-        />
-      </div>
-      <div id="chart-bar">
-        <ReactApexChart
-          options={this.state.optionsBar}
-          series={this.state.seriesBar}
-          type="bar"
-          height={160}
-        />
-      </div>
-    </div>
-  )
+      props.children
+    )
+  );
 }
 
-//candleChart.propTypes = {
-//  type: PropTypes.oneOf(["line", "pie", "doughnut", "bar"]),
-//  data: PropTypes.object,
-//  options: PropTypes.object,
-//  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-//  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-//  getRef: PropTypes.func,
-//  className: PropTypes.string,
-//};
+ChartComponent.propTypes = {
+  type: PropTypes.oneOf(["line", "pie", "doughnut", "bar"]),
+  data: PropTypes.object,
+  options: PropTypes.object,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  getRef: PropTypes.func,
+  className: PropTypes.string,
+};
 
-//candleChart.defaultProps = {
-//  type: "line",
-//  data: {},
-//  options: {},
-//  width: "auto",
-//  height: "auto",
-//  getRef: () => {},
-//  className: "",
-//};
+ChartComponent.defaultProps = {
+  type: "line",
+  data: {},
+  options: {},
+  width: "auto",
+  height: "auto",
+  getRef: () => {},
+  className: "",
+};
 
-export default candleChart
+export default ChartComponent;
