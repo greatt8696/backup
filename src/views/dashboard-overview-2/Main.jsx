@@ -13,28 +13,53 @@ import {
   TabPanel,
   Alert,
   TinySlider,
-} from "@/base-components";
-import { faker as $f } from "@/utils";
-import * as $_ from "lodash";
-import classnames from "classnames";
-import ReportDonutChart from "@/components/report-donut-chart/Main";
-import ReportBarChart from "@/components/report-bar-chart/Main";
-import ReportMap from "@/components/report-map/Main";
-import { useRef } from "react";
-import womanIllustrationUrl from "@/assets/images/woman-illustration.svg";
-import phoneIllustrationUrl from "@/assets/images/phone-illustration.svg";
+} from '@/base-components'
+import { faker as $f } from '@/utils'
+import * as $_ from 'lodash'
+import classnames from 'classnames'
+import ReportDonutChart from '@/components/report-donut-chart/Main'
+import ReportBarChart from '@/components/report-bar-chart/Main'
+import ReportMap from '@/components/report-map/Main'
+import { useRef } from 'react'
+import womanIllustrationUrl from '@/assets/images/woman-illustration.svg'
+import phoneIllustrationUrl from '@/assets/images/phone-illustration.svg'
 
 function Main() {
-  const importantNotesRef = useRef();
+  const importantNotesRef = useRef()
   const prevImportantNotes = () => {
-    importantNotesRef.current.tns.goTo("prev");
-  };
+    importantNotesRef.current.tns.goTo('prev')
+  }
   const nextImportantNotes = () => {
-    importantNotesRef.current.tns.goTo("next");
-  };
+    importantNotesRef.current.tns.goTo('next')
+  }
 
   return (
     <>
+      <Alert className="box bg-primary text-white flex items-center mb-6">
+        {({ dismiss }) => (
+          <>
+            <span>
+              Introducing new dashboard! Download now at
+              <a
+                href="https://themeforest.net/item/midone-jquery-tailwindcss-html-admin-template/26366820"
+                className="underline ml-1"
+                target="blank"
+              >
+                themeforest.net
+              </a>
+              .
+            </span>
+            <button
+              type="button"
+              className="btn-close text-white"
+              onClick={dismiss}
+              aria-label="Close"
+            >
+              <Lucide icon="X" className="w-4 h-4" />
+            </button>
+          </>
+        )}
+      </Alert>
       <div className="grid grid-cols-12 gap-6">
         <div className="col-span-12 2xl:col-span-9">
           <div className="grid grid-cols-12 gap-6">
@@ -151,7 +176,7 @@ function Main() {
                         className="text-success flex text-xs font-medium cursor-pointer ml-2"
                         content="49% Higher than last month"
                       >
-                        49%{" "}
+                        49%{' '}
                         <Lucide icon="ChevronUp" className="w-4 h-4 ml-0.5" />
                       </Tippy>
                     </div>
@@ -165,7 +190,7 @@ function Main() {
                         className="text-success flex text-xs font-medium cursor-pointer ml-2"
                         content="52% Higher than last month"
                       >
-                        52%{" "}
+                        52%{' '}
                         <Lucide icon="ChevronUp" className="w-4 h-4 ml-0.5" />
                       </Tippy>
                     </div>
@@ -177,7 +202,7 @@ function Main() {
                         className="text-success flex text-xs font-medium tooltip cursor-pointer ml-2"
                         content="52% Higher than last month"
                       >
-                        52%{" "}
+                        52%{' '}
                         <Lucide icon="ChevronUp" className="w-4 h-4 ml-0.5" />
                       </Tippy>
                     </div>
@@ -411,7 +436,7 @@ function Main() {
             <div className="col-span-12 lg:col-span-6 mt-6">
               <div className="box p-8 relative overflow-hidden intro-y">
                 <div className="leading-[2.15rem] w-full sm:w-52 text-primary dark:text-white text-xl -mt-3">
-                  Invite friends to get{" "}
+                  Invite friends to get{' '}
                   <span className="font-medium">FREE</span> bonuses!
                 </div>
                 <div className="w-full sm:w-60 leading-relaxed text-slate-500 mt-2">
@@ -522,16 +547,16 @@ function Main() {
                         <td className="w-40">
                           <div
                             className={classnames({
-                              "flex items-center justify-center": true,
-                              "text-success": faker.trueFalse[0],
-                              "text-danger": !faker.trueFalse[0],
+                              'flex items-center justify-center': true,
+                              'text-success': faker.trueFalse[0],
+                              'text-danger': !faker.trueFalse[0],
                             })}
                           >
                             <Lucide
                               icon="CheckSquare"
                               className="w-4 h-4 mr-2"
                             />
-                            {faker.trueFalse[0] ? "Active" : "Inactive"}
+                            {faker.trueFalse[0] ? 'Active' : 'Inactive'}
                           </div>
                         </td>
                         <td className="table-report__action w-56">
@@ -547,7 +572,7 @@ function Main() {
                               className="flex items-center text-danger"
                               href=""
                             >
-                              <Lucide icon="Trash2" className="w-4 h-4 mr-1" />{" "}
+                              <Lucide icon="Trash2" className="w-4 h-4 mr-1" />{' '}
                               Delete
                             </a>
                           </div>
@@ -648,7 +673,7 @@ function Main() {
                   <div className="box zoom-in">
                     <TinySlider
                       getRef={(el) => {
-                        importantNotesRef.current = el;
+                        importantNotesRef.current = el
                       }}
                     >
                       <div className="p-5">
@@ -845,10 +870,10 @@ function Main() {
                         </div>
                       </div>
                       <div className="text-slate-500 mt-1">
-                        Has changed{" "}
+                        Has changed{' '}
                         <a className="text-primary" href="">
                           {$f()[7].products[0].name}
-                        </a>{" "}
+                        </a>{' '}
                         price and description
                       </div>
                     </div>
@@ -872,10 +897,10 @@ function Main() {
                         </div>
                       </div>
                       <div className="text-slate-500 mt-1">
-                        Has changed{" "}
+                        Has changed{' '}
                         <a className="text-primary" href="">
                           {$f()[6].products[0].name}
-                        </a>{" "}
+                        </a>{' '}
                         description
                       </div>
                     </div>
@@ -910,11 +935,11 @@ function Main() {
                         </div>
                         <div
                           className={classnames({
-                            "text-success": faker.trueFalse[0],
-                            "text-danger": !faker.trueFalse[0],
+                            'text-success': faker.trueFalse[0],
+                            'text-danger': !faker.trueFalse[0],
                           })}
                         >
-                          {faker.trueFalse[0] ? "+" : "-"}${faker.totals[0]}
+                          {faker.trueFalse[0] ? '+' : '-'}${faker.totals[0]}
                         </div>
                       </div>
                     </div>
@@ -1070,7 +1095,7 @@ function Main() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Main;
+export default Main
