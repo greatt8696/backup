@@ -1,3 +1,15 @@
+const exchange = [
+  "서울거래소",
+  "인천거래소",
+  "세종거래소",
+  "대전거래소",
+  "강원거래소",
+  "광주거래소",
+  "부산거래소",
+  "울산거래소",
+  "대구거래소",
+];
+
 const initState = {
   exchangeTransactions: [],
   orderbooks: [],
@@ -12,8 +24,9 @@ const initState = {
     "KRW-ATOM",
     "KRW-SOL",
     "KRW-ETC",
-  ].map((val) => {
-    return { code: val };
+    "KRW-MATIC",
+  ].map((val, idx) => {
+    return { code: val, exchange: exchange[idx] };
   }),
 };
 
@@ -22,7 +35,6 @@ const coinReducer = (state = initState, action) => {
 
   switch (type) {
     case "UPDATE_COIN":
-      console.log(payload);
 
       return {
         ...state,

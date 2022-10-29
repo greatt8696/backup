@@ -8,7 +8,9 @@ const tradeSocket = io("ws://localhost:3636/trade");
 const socket = io("ws://localhost:3636");
 
 function getTradeSocket(dispatch) {
-  tradeSocket.on("order", (arg) => {});
+  tradeSocket.on("order", (arg) => {
+    
+  });
   tradeSocket.on("price", (arg) => {
     const {
       code,

@@ -33,7 +33,9 @@ function Main() {
     importantNotesRef.current.tns.goTo('next')
   }
 
-  useEffect(()=>{console.log(coinsPrice);},[coinsPrice])
+  useEffect(() => {
+    console.log(coinsPrice)
+  }, [coinsPrice])
 
   return (
     <>
@@ -237,9 +239,12 @@ function Main() {
             <div className="2xl:pl-6 grid grid-cols-12 gap-x-6 2xl:gap-x-0 gap-y-6">
               {/* BEGIN: Transactions */}
               <div className="col-span-12 md:col-span-6 xl:col-span-4 2xl:col-span-12 mt-3">
-                <div className="intro-x flex items-center h-10">
+                <div className="intro-x flex items-center h-10 mt-6">
                   <h2 className="text-lg font-medium truncate mr-5">
                     Green Coin
+                  </h2>
+                  <h2 className="text-lg font-medium truncate mr-5">
+                    {1}
                   </h2>
                 </div>
                 <div className="">
