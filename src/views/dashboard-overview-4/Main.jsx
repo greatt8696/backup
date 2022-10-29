@@ -15,7 +15,7 @@ import ReportDonutChart from '@/components/report-donut-chart/Main'
 // import ReportMap from "@/components/report-map/Main";
 import { useRef } from 'react'
 import Test from './Test'
-import mainProfile from '../../assets/images/mainprofile.png'
+import profile_2 from '../../assets/images/profile_2.png'
 import { useDispatch, useSelector } from 'react-redux'
 import CandleChart from '../../components/candleChart/CandleChart'
 import PricePanel from '../../components/PricePanel'
