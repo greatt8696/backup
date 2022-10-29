@@ -14,6 +14,7 @@ const PricePanel = (props) => {
     change_price,
     acc_trade_price_24h,
     name,
+    exchange,
   } = props.coin
 
   const upDown = change === 'RISE' ? '+' : '-'
@@ -38,23 +39,23 @@ const PricePanel = (props) => {
         change_price,
         acc_trade_price_24h,
         name,
+        exchange,
       },
     })
-  }
-
-  const anmatieEndHandler = () => {
-    panelRef.current.classList.remove('animate-wiggle-once')
-    upDown === '+'
-      ? panelRef.current.classList.remove('animate-blink-green')
-      : panelRef.current.classList.remove('animate-blink-red')
   }
 
   useEffect(() => {
     panelRef.current.classList.add('animate-wiggle-once')
     upDown === '+'
-      ? panelRef.current.classList.add('animate-blink-green')
-      : panelRef.current.classList.add('animate-blink-red')
+      ? panelRef.current.classList.add('animate-blink-red')
+      : panelRef.current.classList.add('animate-blink-blue')
   }, [trade_price])
+
+  const anmatieEndHandler = () => {
+    panelRef.current.classList.remove('animate-wiggle-once')
+    panelRef.current.classList.remove('animate-blink-red')
+    panelRef.current.classList.remove('animate-blink-blue')
+  }
 
   return (
     <div
@@ -63,11 +64,11 @@ const PricePanel = (props) => {
       onClick={clickHandler}
       ref={panelRef}
     >
-      <div className="pointer-events-none  z-0">{name}</div>
+      <div className="pointer-events-none  z-0">{exchange}</div>
       {/* <img src={imgUrl}></img> */}
       <div className="pointer-events-none  z-0">{trade_price}</div>
       <div
-        className={`${upDown === '+' ? 'text-green-400' : 'text-red-400'} z-0`}
+        className={`${upDown === '+' ? 'text-red-300' : 'text-blue-300'} z-0`}
       >
         ({changeRate})
       </div>
