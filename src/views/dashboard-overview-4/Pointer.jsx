@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 
 const Pointer = (props) => {
-  console.log('@@@@@@@@@@', props)
+  console.log('@@@@@@@@@@', props.coinsPrice)
   const {
     code,
     trade_price,
@@ -19,37 +19,30 @@ const Pointer = (props) => {
   const waveRef = useRef()
 
   useEffect(() => {
-    waveRef.current.classList.add('animate-ping-once')
-    waveRef === '+'
+    upDown === '+'
       ? waveRef.current.classList.add('bg-red-600')
       : waveRef.current.classList.add('bg-blue-600')
-    upDown === '+'
-      ? pointerRef.current.classList.add('animate-blink-red')
-      : pointerRef.current.classList.add('animate-blink-blue')
+    waveRef.current.classList.add('animate-ping-once')
   }, [trade_price])
 
   const anmatieEndHandler = () => {
     waveRef.current.classList.remove('animate-ping-once')
-    waveRef === '+'
-      ? waveRef.current.classList.remove('bg-red-600')
-      : waveRef.current.classList.remove('bg-blue-600')
-    upDown === '+'
-      ? pointerRef.current.classList.remove('animate-blink-red')
-      : pointerRef.current.classList.remove('animate-blink-blue')
+    waveRef.current.classList.remove('bg-red-600')
+    waveRef.current.classList.remove('bg-blue-600')
   }
 
   return (
-    <div className="w-8 h-8 rounded-full group">
-      <div className="label text-black font-bold text-[15px] w-[88px] bg-white p-1 rounded-lg transition-all opacity-0 group-hover:opacity-100">
+    <div className="relative w-8 h-8 rounded-full group">
+      <div className="absolute -top-9 label text-black font-bold text-[15px] w-[88px] z-30 bg-white p-1 rounded-lg transition-all opacity-0 group-hover:opacity-100">
         {exchange}
       </div>
       <div
         className="opacity-80 w-8 h-8 bg-green-600 rounded-full group transition-all"
         ref={pointerRef}
-        onAnimationEnd={anmatieEndHandler}
       >
         <div
-          className="opacity-100 w-8 h-8 rounded-full transition-all  animate-ping-once"
+          className="opacity-0 w-8 h-8 rounded-full transition-all -z-10"
+          onAnimationEnd={anmatieEndHandler}
           ref={waveRef}
         ></div>
       </div>

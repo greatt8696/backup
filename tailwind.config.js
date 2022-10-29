@@ -112,54 +112,56 @@ module.exports = {
         "blink-ba-red": "blink-ba-red 0.6s ease-in-out 1",
         "blink-ba-blue": "blink-ba-blue 0.6s ease-in-out 1",
 
-        "ping-once": "ping-once 0.6s ease-in-out 1",
+        "ping-once": "ping-once 1s ease 1",
       },
 
       // 내가 원하는 animation-keyframes 지정
       keyframes: {
         wiggle: {
-          "0%, 100%": { transform: "rotate(-3deg)" },
-          "50%": { transform: "rotate(3deg)" },
-        },
-        "blink-red": {
-          "0%, 100%": {
-            "background-color": "transparent",
-            transform: "rotate(-3deg)",
-          },
-          "50%": { "background-color": "#1d5cc5", transform: "rotate(3deg)" },
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(1deg)" },
+          "75%": { transform: "rotate(-1deg)" },
         },
         "blink-blue": {
           "0%, 100%": {
             "background-color": "transparent",
-            transform: "rotate(-3deg)",
+            transform: "rotate(-1deg)",
           },
-          "50%": { "background-color": "#e6285a", transform: "rotate(3deg)" },
+          "50%": { "background-color": "#1d5cc5", transform: "rotate(1deg)" },
+        },
+        "blink-red": {
+          "0%, 100%": {
+            "background-color": "transparent",
+            transform: "rotate(-1deg)",
+          },
+          "50%": { "background-color": "#e6285a", transform: "rotate(1deg)" },
         },
 
-        "blink-bar-red": {
+        "blink-bar-blue": {
           "0%, 100%": {
             "background-color": "transparent",
           },
           "50%": { "background-color": "#1d5cc5" },
         },
-        "blink-bar-blue": {
+        "blink-bar-red": {
           "0%, 100%": {
             "background-color": "transparent",
           },
-          "50%": { "background-color": "#b91c1c" },
+          "50%": { "background-color": "#e6285a" },
         },
 
-        "blink-text-red": {
+        "blink-text-blue": {
           "0%, 100%": { color: "white", transform: "scale(1)" },
           "50%": { color: "#1d5cc5", transform: "scale(1.2)" },
         },
-        "blink-text-blue": {
+        "blink-text-red": {
           "0%, 100%": { color: "white", transform: "scale(1)" },
           "50%": { color: "#e6285a", transform: "scale(1.2)" },
         },
         "ping-once": {
-          "0%": { transform: "scale(1)" },
-          "100%": { opacity: 0, transform: "scale(2)" },
+          "0%": { opacity: 50 , transform: "scale(1)" },
+          "50%": { opacity: 0, transform: "scale(2.2)" },
+          "100%": { opacity: 0, transform: "scale(1)" },
         },
       },
     },
